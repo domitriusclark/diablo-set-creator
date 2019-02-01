@@ -10,7 +10,7 @@ import { withClientState } from 'apollo-link-state';
 import defaultState from './apollo/defaultState';
 import resolvers from './apollo/resolvers';
 import App from './App';
-import './sass/main.scss';
+import './index.css';
 
 const cache = new InMemoryCache();
 
