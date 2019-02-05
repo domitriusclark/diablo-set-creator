@@ -14,10 +14,33 @@ import './index.css';
 
 const cache = new InMemoryCache();
 
+const typeDefs = `
+    type Character {
+        id: Int!
+        characterName: String!
+        characterSlug: String!
+    }
+
+    type Item {
+        id: Int!
+        name: String!
+        path: String!
+    }
+
+    type Mutation {
+        addCharacter(characterName: String!, characterClass: String!): Character
+    }
+
+    type Query {
+        characters: [Character]
+    }
+`
+
 const stateLink = withClientState({
     cache,
     defaults: defaultState,
     resolvers,
+    typeDefs
 });
 
 const client = new ApolloClient({

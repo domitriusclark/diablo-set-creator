@@ -8,6 +8,7 @@
     "apollo-link": "^1.2.3",
     "apollo-link-state": "^0.4.2",
     "event-stream": "3.3.4",
+    "express": "^4.16.4",
     "graphql": "^14.0.2",
     "graphql-tag": "^2.10.0",
     "node-sass": "^4.10.0",

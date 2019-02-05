@@ -1,0 +1,557 @@
+       [
+       {
+            "id": "Legs_Monk",
+            "name": "Pants",
+            "path": "item-type/legsmonk"
+        },
+        {
+            "id": "Boots_Monk",
+            "name": "Boots",
+            "path": "item-type/bootsmonk"
+        },
+        {
+            "id": "ChestArmor_Necromancer",
+            "name": "Chest Armor",
+            "path": "item-type/chestarmornecromancer"
+        },
+        {
+            "id": "ScrollBuff",
+            "name": "Scroll",
+            "path": "item-type/scrollbuff"
+        },
+        {
+            "id": "ChestArmor_Monk",
+            "name": "Chest Armor",
+            "path": "item-type/chestarmormonk"
+        },
+        {
+            "id": "UpgradeableJewel",
+            "name": "Gem",
+            "path": "item-type/upgradeablejewel"
+        },
+        {
+            "id": "Boots_DemonHunter",
+            "name": "Boots",
+            "path": "item-type/bootsdemonhunter"
+        },
+        {
+            "id": "Legs_Necromancer",
+            "name": "Pants",
+            "path": "item-type/legsnecromancer"
+        },
+        {
+            "id": "PortalDevice",
+            "name": "Portal Device",
+            "path": "item-type/portaldevice"
+        },
+        {
+            "id": "Shoulders_Wizard",
+            "name": "Shoulders",
+            "path": "item-type/shoulderswizard"
+        },
+        {
+            "id": "ChestArmor_Wizard",
+            "name": "Chest Armor",
+            "path": "item-type/chestarmorwizard"
+        },
+        {
+            "id": "Shoulders_Monk",
+            "name": "Shoulders",
+            "path": "item-type/shouldersmonk"
+        },
+        {
+            "id": "ChestArmor",
+            "name": "Chest Armor",
+            "path": "item-type/chestarmor"
+        },
+        {
+            "id": "ScoundrelSpecial",
+            "name": "Scoundrel Token",
+            "path": "item-type/scoundrelspecial"
+        },
+        {
+            "id": "ChestArmor_Crusader",
+            "name": "Chest Armor",
+            "path": "item-type/chestarmorcrusader"
+        },
+        {
+            "id": "Shoulders",
+            "name": "Shoulders",
+            "path": "item-type/shoulders"
+        },
+        {
+            "id": "GenericHelm",
+            "name": "Helm",
+            "path": "item-type/generichelm"
+        },
+        {
+            "id": "GenericBelt",
+            "name": "Belt",
+            "path": "item-type/genericbelt"
+        },
+        {
+            "id": "Shoulders_Barbarian",
+            "name": "Shoulders",
+            "path": "item-type/shouldersbarbarian"
+        },
+        {
+            "id": "CraftingPlan_MysticTransmog",
+            "name": "Transmogrify Plan",
+            "path": "item-type/craftingplanmystictransmog"
+        },
+        {
+            "id": "Gloves_Monk",
+            "name": "Gloves",
+            "path": "item-type/glovesmonk"
+        },
+        {
+            "id": "Helm_WitchDoctor",
+            "name": "Helm",
+            "path": "item-type/helmwitchdoctor"
+        },
+        {
+            "id": "GreaterShard",
+            "name": "Greater Shard",
+            "path": "item-type/greatershard"
+        },
+        {
+            "id": "Gloves_DemonHunter",
+            "name": "Gloves",
+            "path": "item-type/glovesdemonhunter"
+        },
+        {
+            "id": "Legs_WitchDoctor",
+            "name": "Pants",
+            "path": "item-type/legswitchdoctor"
+        },
+        {
+            "id": "Legs_Crusader",
+            "name": "Pants",
+            "path": "item-type/legscrusader"
+        },
+        {
+            "id": "Boots_WitchDoctor",
+            "name": "Boots",
+            "path": "item-type/bootswitchdoctor"
+        },
+        {
+            "id": "Dye",
+            "name": "Dye",
+            "path": "item-type/dye"
+        },
+        {
+            "id": "Bow",
+            "name": "Bow",
+            "path": "item-type/bow"
+        },
+        {
+            "id": "Axe",
+            "name": "Axe",
+            "path": "item-type/axe"
+        },
+        {
+            "id": "Gold",
+            "name": "Gold",
+            "path": "item-type/gold"
+        },
+        {
+            "id": "Legs",
+            "name": "Pants",
+            "path": "item-type/legs"
+        },
+        {
+            "id": "Mace",
+            "name": "Mace",
+            "path": "item-type/mace"
+        },
+        {
+            "id": "Helm",
+            "name": "Helm",
+            "path": "item-type/helm"
+        },
+        {
+            "id": "Orb",
+            "name": "Source",
+            "path": "item-type/orb"
+        },
+        {
+            "id": "Gem",
+            "name": "Gem",
+            "path": "item-type/gem"
+        },
+        {
+            "id": "TrainingTome",
+            "name": "Tome of Training",
+            "path": "item-type/trainingtome"
+        },
+        {
+            "id": "ChestArmor_WitchDoctor",
+            "name": "Chest Armor",
+            "path": "item-type/chestarmorwitchdoctor"
+        },
+        {
+            "id": "Shoulders_DemonHunter",
+            "name": "Shoulders",
+            "path": "item-type/shouldersdemonhunter"
+        },
+        {
+            "id": "Gloves",
+            "name": "Gloves",
+            "path": "item-type/gloves"
+        },
+        {
+            "id": "Helm_DemonHunter",
+            "name": "Helm",
+            "path": "item-type/helmdemonhunter"
+        },
+        {
+            "id": "CraftingPlan_Jeweler",
+            "name": "Jeweler Design",
+            "path": "item-type/craftingplanjeweler"
+        },
+        {
+            "id": "HandXbow",
+            "name": "Hand Crossbow",
+            "path": "item-type/handxbow"
+        },
+        {
+            "id": "SpiritStone_Monk",
+            "name": "Spirit Stone",
+            "path": "item-type/spiritstonemonk"
+        },
+        {
+            "id": "Gloves_Barbarian",
+            "name": "Gloves",
+            "path": "item-type/glovesbarbarian"
+        },
+        {
+            "id": "CrusaderShield",
+            "name": "Crusader Shield",
+            "path": "item-type/crusadershield"
+        },
+        {
+            "id": "Shoulders_WitchDoctor",
+            "name": "Shoulders",
+            "path": "item-type/shoulderswitchdoctor"
+        },
+        {
+            "id": "Helm_Wizard",
+            "name": "Helm",
+            "path": "item-type/helmwizard"
+        },
+        {
+            "id": "GenericChestArmor",
+            "name": "Chest Armor",
+            "path": "item-type/genericchestarmor"
+        },
+        {
+            "id": "Shield",
+            "name": "Shield",
+            "path": "item-type/shield"
+        },
+        {
+            "id": "ChestArmor_Barbarian",
+            "name": "Chest Armor",
+            "path": "item-type/chestarmorbarbarian"
+        },
+        {
+            "id": "GeneralUtility",
+            "name": "Consumable",
+            "path": "item-type/generalutility"
+        },
+        {
+            "id": "Flail1H",
+            "name": "Flail",
+            "path": "item-type/flail1h"
+        },
+        {
+            "id": "Sword2H",
+            "name": "Two-Handed Sword",
+            "path": "item-type/sword2h"
+        },
+        {
+            "id": "Shoulders_Necromancer",
+            "name": "Shoulders",
+            "path": "item-type/shouldersnecromancer"
+        },
+        {
+            "id": "Legs_Barbarian",
+            "name": "Pants",
+            "path": "item-type/legsbarbarian"
+        },
+        {
+            "id": "WizardHat",
+            "name": "Wizard Hat",
+            "path": "item-type/wizardhat"
+        },
+        {
+            "id": "Polearm",
+            "name": "Polearm",
+            "path": "item-type/polearm"
+        },
+        {
+            "id": "MightyWeapon1H",
+            "name": "Mighty Weapon",
+            "path": "item-type/mightyweapon1h"
+        },
+        {
+            "id": "ChestArmor_DemonHunter",
+            "name": "Chest Armor",
+            "path": "item-type/chestarmordemonhunter"
+        },
+        {
+            "id": "MightyWeapon2H",
+            "name": "Two-Handed Mighty Weapon",
+            "path": "item-type/mightyweapon2h"
+        },
+        {
+            "id": "Crossbow",
+            "name": "Crossbow",
+            "path": "item-type/crossbow"
+        },
+        {
+            "id": "Flail2H",
+            "name": "Two-Handed Flail",
+            "path": "item-type/flail2h"
+        },
+        {
+            "id": "CraftingPlan_Smith",
+            "name": "Blacksmith Plan",
+            "path": "item-type/craftingplansmith"
+        },
+        {
+            "id": "CraftingReagent",
+            "name": "Crafting Material",
+            "path": "item-type/craftingreagent"
+        },
+        {
+            "id": "Legs_Wizard",
+            "name": "Pants",
+            "path": "item-type/legswizard"
+        },
+        {
+            "id": "CombatStaff",
+            "name": "Daibo",
+            "path": "item-type/combatstaff"
+        },
+        {
+            "id": "Helm_Crusader",
+            "name": "Helm",
+            "path": "item-type/helmcrusader"
+        },
+        {
+            "id": "FistWeapon",
+            "name": "Fist Weapon",
+            "path": "item-type/fistweapon"
+        },
+        {
+            "id": "Gloves_WitchDoctor",
+            "name": "Gloves",
+            "path": "item-type/gloveswitchdoctor"
+        },
+        {
+            "id": "CraftingPlanLegendary_Smith",
+            "name": "Blacksmith Plan",
+            "path": "item-type/craftingplanlegendarysmith"
+        },
+        {
+            "id": "Boots_Necromancer",
+            "name": "Boots",
+            "path": "item-type/bootsnecromancer"
+        },
+        {
+            "id": "HealthPotion",
+            "name": "Potion",
+            "path": "item-type/healthpotion"
+        },
+        {
+            "id": "Boots_Barbarian",
+            "name": "Boots",
+            "path": "item-type/bootsbarbarian"
+        },
+        {
+            "id": "Bracers",
+            "name": "Bracers",
+            "path": "item-type/bracers"
+        },
+        {
+            "id": "Helm_Barbarian",
+            "name": "Helm",
+            "path": "item-type/helmbarbarian"
+        },
+        {
+            "id": "Boots_Crusader",
+            "name": "Boots",
+            "path": "item-type/bootscrusader"
+        },
+        {
+        "id": "VoodooMask",
+        "name": "Voodoo Mask",
+        "path": "item-type/voodoomask"
+        },
+        {
+        "id": "Amulet",
+        "name": "Amulet",
+        "path": "item-type/amulet"
+        },
+        {
+        "id": "Belt_Barbarian",
+        "name": "Mighty Belt",
+        "path": "item-type/beltbarbarian"
+        },
+        {
+        "id": "CeremonialDagger",
+        "name": "Ceremonial Knife",
+        "path": "item-type/ceremonialdagger"
+        },
+        {
+        "id": "MysteryWeapon2H",
+        "name": "Weapon",
+        "path": "item-type/mysteryweapon2h"
+        },
+        {
+        "id": "MysteryWeapon1H",
+        "name": "Weapon",
+        "path": "item-type/mysteryweapon1h"
+        },
+        {
+        "id": "Helm_Necromancer",
+        "name": "Helm",
+        "path": "item-type/helmnecromancer"
+        },
+        {
+        "id": "EnchantressSpecial",
+        "name": "Enchantress Focus",
+        "path": "item-type/enchantressspecial"
+        },
+        {
+        "id": "Boots_Wizard",
+        "name": "Boots",
+        "path": "item-type/bootswizard"
+        },
+        {
+        "id": "Dagger",
+        "name": "Dagger",
+        "path": "item-type/dagger"
+        },
+        {
+        "id": "Gloves_Crusader",
+        "name": "Gloves",
+        "path": "item-type/glovescrusader"
+        },
+        {
+        "id": "Quiver",
+        "name": "Quiver",
+        "path": "item-type/quiver"
+        },
+        {
+        "id": "Shard",
+        "name": "Shard",
+        "path": "item-type/shard"
+        },
+        {
+        "id": "Spear",
+        "name": "Spear",
+        "path": "item-type/spear"
+        },
+        {
+        "id": "Gloves_Necromancer",
+        "name": "Gloves",
+        "path": "item-type/glovesnecromancer"
+        },
+        {
+        "id": "Staff",
+        "name": "Staff",
+        "path": "item-type/staff"
+        },
+        {
+        "id": "Scythe1H",
+        "name": "Scythe",
+        "path": "item-type/scythe1h"
+        },
+        {
+        "id": "Sword",
+        "name": "Sword",
+        "path": "item-type/sword"
+        },
+        {
+        "id": "Scythe2H",
+        "name": "Two-Handed Scythe",
+        "path": "item-type/scythe2h"
+        },
+        {
+        "id": "Gloves_Wizard",
+        "name": "Gloves",
+        "path": "item-type/gloveswizard"
+        },
+        {
+        "id": "Scroll",
+        "name": "Scroll",
+        "path": "item-type/scroll"
+        },
+        {
+        "id": "NecromancerOffhand",
+        "name": "Phylactery",
+        "path": "item-type/necromanceroffhand"
+        },
+        {
+        "id": "Cloak",
+        "name": "Cloak",
+        "path": "item-type/cloak"
+        },
+        {
+        "id": "TemplarSpecial",
+        "name": "Templar Relic",
+        "path": "item-type/templarspecial"
+        },
+        {
+        "id": "Mace2H",
+        "name": "Two-Handed Mace",
+        "path": "item-type/mace2h"
+        },
+        {
+        "id": "Helm_Monk",
+        "name": "Helm",
+        "path": "item-type/helmmonk"
+        },
+        {
+        "id": "Legs_DemonHunter",
+        "name": "Pants",
+        "path": "item-type/legsdemonhunter"
+        },
+        {
+        "id": "Ring",
+        "name": "Ring",
+        "path": "item-type/ring"
+        },
+        {
+        "id": "Quest",
+        "name": "Quest",
+        "path": "item-type/quest"
+        },
+        {
+        "id": "Boots",
+        "name": "Boots",
+        "path": "item-type/boots"
+        },
+        {
+        "id": "Mojo",
+        "name": "Mojo",
+        "path": "item-type/mojo"
+        },
+        {
+        "id": "Wand",
+        "name": "Wand",
+        "path": "item-type/wand"
+        },
+        {
+        "id": "Shoulders_Crusader",
+        "name": "Shoulders",
+        "path": "item-type/shoulderscrusader"
+        },
+        {
+        "id": "Axe2H",
+        "name": "Two-Handed Axe",
+        "path": "item-type/axe2h"
+        }
+    ]
