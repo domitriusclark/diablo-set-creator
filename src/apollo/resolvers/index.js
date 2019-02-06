@@ -6,15 +6,17 @@ export default {
     Mutation: {
         addCharacter: (_, { characterName, characterClass }, { cache }) => {
             const query = gql`
-                query GetUserCharacterList {
-                    userCharacterList @client {
+                query GetUserCharacters {
+                    userCharacters @client {
                         id
                         characterName
-                        characterSlug
+                        characterClass
                     }
                 }
             `
             const previousState = cache.readQuery({ query });
+
+            console.log(previousState);
 
             const newCharacter = {
                 __typename: 'SingleCharacter',

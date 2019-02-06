@@ -7,24 +7,22 @@ import { ApolloLink } from 'apollo-link';
 import { withClientState } from 'apollo-link-state';
 
 
-import defaultState from './apollo/defaultState';
+import defaults from './apollo/defaults';
 import resolvers from './apollo/resolvers';
 import App from './App';
 import './index.css';
 
-const cache = new InMemoryCache();
-
 const typeDefs = `
+    type UserCharacter {
+        id: Int!
+        characterName: String!
+        characterClass: String!
+    }
+
     type Character {
         id: Int!
         characterName: String!
         characterSlug: String!
-    }
-
-    type Item {
-        id: Int!
-        name: String!
-        path: String!
     }
 
     type Mutation {
@@ -33,12 +31,15 @@ const typeDefs = `
 
     type Query {
         characters: [Character]
+        userCharacters: [UserCharacter]ehrn 
     }
-`
+`;
+
+const cache = new InMemoryCache();
 
 const stateLink = withClientState({
     cache,
-    defaults: defaultState,
+    defaults,
     resolvers,
     typeDefs
 });

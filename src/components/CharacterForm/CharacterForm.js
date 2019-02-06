@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Mutation } from 'react-apollo';
+import { Query, Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
 
@@ -13,12 +13,25 @@ const ADD_CHARACTER = gql`
     }
 `;
 
+const GET_USER_CHARACTERS = gql`
+    query GetUserCharacters {
+        userCharacters @client {
+            characterName
+        }
+    }
+`;
+
 class CharacterForm extends Component {
-    textInput = React.createRef();
-    dropdownInput = React.createRef();
+    constructor() {
+        super();
+
+        this.textInput = React.createRef();
+        this.dropDownInput = React.createRef();
+    }
 
     render() {
         return (
+            <div>
             <Mutation mutation={ADD_CHARACTER}>
                 {(addCharacter) => {
                     return (
@@ -38,6 +51,23 @@ class CharacterForm extends Component {
                 }}
             </Mutation>
 
+            <Query query={GET_USER_CHARACTERS}>
+                {({ data, error, loading }) => {
+                    if (error) return <h1>Error</h1>
+                    if (loading) return <h1>Loading...</h1>
+
+
+                    return (
+                        <div>
+                            {data.userCharacters.map((character) => {
+                                return <p>{character.characterName}</p>
+                            })}
+                        </div>
+
+                    )
+                }}
+            </Query>
+            </div>
         )
     }
 }
