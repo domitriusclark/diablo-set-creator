@@ -7,17 +7,34 @@ import { ApolloLink } from 'apollo-link';
 import { withClientState } from 'apollo-link-state';
 
 
-import defaultState from './apollo/defaultState';
+import defaults from './apollo/defaults';
 import resolvers from './apollo/resolvers';
 import App from './App';
 import './index.css';
 
 const cache = new InMemoryCache();
 
+const typeDefs = `
+    type Character {
+        id: Int!
+        characterName: String!
+        characterClass: String!
+    }
+
+    type Mutation {
+        addCharacter(characterName: String!, characterClass: String!): Character
+    }
+
+    type Query {
+        characters: [Character]
+    }
+`
+
 const stateLink = withClientState({
     cache,
-    defaults: defaultState,
+    defaults,
     resolvers,
+    typeDefs
 });
 
 const client = new ApolloClient({
