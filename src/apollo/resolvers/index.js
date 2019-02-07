@@ -4,29 +4,26 @@ let nextCharacterId = 0;
 
 export default {
     Mutation: {
-        addCharacter: (_, { characterName, characterClass }, { cache }) => {
+        addCharacter: (_, { characterName }, { cache }) => {
             const query = gql`
                 query GetUserCharacters {
                     userCharacters @client {
                         id
-                        characterName
-                        characterClass
+                        characterName                      
                     }
                 }
             `
-            const previousState = cache.readQuery({ query });
 
-            console.log(previousState);
+            const previousState = cache.readQuery({ query });
 
             const newCharacter = {
                 __typename: 'SingleCharacter',
                 id: nextCharacterId++,
-                characterName,
-                characterClass
+                characterName
             };
 
             const data = {
-                userCharacterList: previousState.userCharacterList.concat(newCharacter),
+                userCharacters: previousState.userCharacters.concat(newCharacter),
             };
 
             cache.writeData({ data });

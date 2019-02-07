@@ -16,7 +16,7 @@ const typeDefs = `
     type UserCharacter {
         id: Int!
         characterName: String!
-        characterClass: String!
+        
     }
 
     type Character {
@@ -26,7 +26,7 @@ const typeDefs = `
     }
 
     type Mutation {
-        addCharacter(characterName: String!, characterClass: String!): Character
+        addCharacter(characterName: String!): Character
     }
 
     type Query {

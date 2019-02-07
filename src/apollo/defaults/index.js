@@ -1,5 +1,5 @@
 export default {
-    userCharacters: [{ __typename: "UserCharacter", id: 0, characterName: "CharacterOne", characterClass: "Barb"}],
+    userCharacters: [],
     characters: [],
     items: []
 };
