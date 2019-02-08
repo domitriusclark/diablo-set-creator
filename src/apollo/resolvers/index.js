@@ -7,10 +7,10 @@ export default {
         addCharacter: (_, { characterName, characterClass }, { cache }) => {
             const query = gql`
                 query GetUserCharacters {
-                    characters @client {
+                    userCharacters @client {
                         id 
-                        characterName
-                        characterClass
+                        characterName     
+                        characterClass                   
                     }
                 }
             `;
@@ -24,8 +24,10 @@ export default {
                 characterClass
             };
 
+            console.log('This is the new character obj', newCharacter);
+
             const data = {
-                userCharacters: previousState.characters.concat(newCharacter)
+                userCharacters: previousState.userCharacters.concat(newCharacter)
             };
 
             cache.writeData({ data });

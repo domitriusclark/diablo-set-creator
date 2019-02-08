@@ -15,10 +15,16 @@ import './index.css';
 const cache = new InMemoryCache();
 
 const typeDefs = `
-    type Character {
+    type UserCharacter {
         id: Int!
         characterName: String!
         characterClass: String!
+    }
+
+    type Character {
+        id: Int!
+        characterName: String!
+        
     }
 
     type Mutation {
@@ -27,6 +33,7 @@ const typeDefs = `
 
     type Query {
         characters: [Character]
+        userCharacters: [UserCharacter]
     }
 `
 
