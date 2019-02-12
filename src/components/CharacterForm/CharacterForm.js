@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import { Query, Mutation } from 'react-apollo';
+import React from 'react';
+import { useQuery, useMutation } from 'react-apollo-hooks';
 import { withRouter } from 'react-router';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 import DataError from '../Utils/DataError/DataError';
 import Loading from '../Utils/Loading/Loading';
@@ -39,46 +38,7 @@ const StyledForm = styled.form`
 const H1 = styled.h1`
     font-size: 2rem;
     color: rebeccapurple;
-`
-
-const StyledLink = styled(Link)`
-    text-decoration: none;
-    color: black;
-
-    &::before {
-        text-decoration: none;
-    }
-
-    &::after{
-        text-decoration: none;
-    }
-
-    &:visited {
-        text-decoration: none;
-        color: black;
-    }
-`
-
-
-const ADD_CHARACTER = gql`
-    mutation AddCharacter($characterName: String!, $characterClass: String!) {
-        addCharacter(characterName: $characterName, characterClass: $characterClass) @client {
-            id 
-            characterName
-            characterClass
-        }
-    }
 `;
-
-const GET_USER_CHARACTERS = gql`
-    query GetUserCharacters {
-        userCharacters @client {
-            id
-            characterName
-            characterClass
-        }
-    }
-`
 
 const diabloClasses = [
     {
@@ -109,63 +69,72 @@ const diabloClasses = [
         id: 6,
         name: "Necromancer"
     }
-]
+];
 
-class CharacterForm extends Component {
-    constructor() {
-        super();
+const ADD_CHARACTER = gql`
+    mutation AddCharacter($characterName: String!, $characterClass: String!) {
+        addCharacter(characterName: $characterName, characterClass: $characterClass) @client {
+            id 
+            characterName
+            characterClass
+        }
+    }
+`;
 
-        this.textInput = React.createRef();
-        this.characterSelect = React.createRef();
+const GET_USER_CHARACTERS = gql`
+    query GetUserCharacters {
+        userCharacters @client {
+            id
+            characterName
+            characterClass
+        }
+    }
+`
+
+const CharacterForm = (props) => {
+    const textInput = React.useRef();
+    const characterSelect = React.useRef();
+    const { data, error, loading } = useQuery(GET_USER_CHARACTERS);
+    const { userCharacters } = data;
+
+    const addCharacter = useMutation(ADD_CHARACTER);
+
+    const handleOnComplete = (data) => {
+        const { variables } = data; 
+        const { characterName, characterClass } = variables;
+        addCharacter({variables: { characterName, characterClass }}).then(() => props.history.push('/set-creator'))
     }
 
+    if (error) return <DataError />
+    if (loading) return <Loading />
 
-    render() {
-        return (
+    return (
+        <div>
+            <FormWrapper>
+                <H1>Add Your Character!</H1>
+                <StyledForm onSubmit={(e) => {
+                    e.preventDefault();
+                    handleOnComplete({ variables: { characterName: textInput.current.value, characterClass: characterSelect.current.value }});
+                    textInput.current.value = '';
+                }}>
+                    <input type="text" ref={textInput} />
+                    <select ref={characterSelect}>
+                        {diabloClasses.map((singleClass) => (
+                            <option value={singleClass.name}>{singleClass.name}</option>
+                        ))}
+                    </select>
+                    <button>Add Character</button>
+                </StyledForm>                                
+            </FormWrapper>
             <div>
-                <Mutation mutation={ADD_CHARACTER} onCompleted={() => this.props.history.push('/set-creator')}>
-                    {(addCharacter) => {
-                        return (
-                            <FormWrapper>
-                                <H1>Add Your Character!</H1>
-                                <StyledForm onSubmit={(e) => {
-                                    e.preventDefault();
-                                    addCharacter({ variables: { characterName: this.textInput.current.value, characterClass: this.characterSelect.current.value }});
-                                    this.textInput.current.value = '';
-                                }}>
-                                    <input type="text" ref={this.textInput} />
-                                    <select ref={this.characterSelect}>
-                                        {diabloClasses.map((singleClass) => (
-                                            <option value={singleClass.name}>{singleClass.name}</option>
-                                        ))}
-                                    </select>
-                                    <button>Add Character</button>
-                                </StyledForm>                                
-                            </FormWrapper>
-                        )
-                    }}
-                </Mutation>
-                <Query query={GET_USER_CHARACTERS}>
-                    {({data, error, loading}) => {
-                        if (error) return <DataError />
-                        if (loading) return <Loading />
-
-                        const { userCharacters } = data;
-                        return (
-                            <div>
-                                {userCharacters.map((character) => {
-                                    const { characterName, id } = character;
-                                    return <p key={id}>{characterName}</p>
-                                })}
-                            </div>
-                        )
-                    }}
-                </Query>
+                {userCharacters.map((character) => {
+                    const { characterName, id } = character;
+                    return <p key={id}>{characterName}</p>
+                })}
             </div>
-            
-        )
-    }
-}
+        </div>
+    )
+};
 
 export default withRouter(CharacterForm);
 export { GET_USER_CHARACTERS }

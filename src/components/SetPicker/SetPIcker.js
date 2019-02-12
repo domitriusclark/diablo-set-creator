@@ -2,7 +2,7 @@ import React from 'react';
 
 const SetPicker = () => {
     return (
-        <p>wow</p>
+        <p>SetPicker</p>
     )
 };
 
