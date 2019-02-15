@@ -22,10 +22,18 @@ const typeDefs = `
         characterClass: String!
     }
 
-    type Character {
-        id: Int!
-        characterName: String!
-        
+    type ItemType {
+        twoHanded: Boolean!
+        id: String!
+    }
+
+    type Item {
+        id: String!
+        name: String!
+        icon: "String"
+        slots: [String]!
+        setName: String!
+        type: ItemType
     }
 
     type Mutation {
@@ -35,6 +43,7 @@ const typeDefs = `
     type Query {
         characters: [Character]
         userCharacters: [UserCharacter]
+        items: [Item]
     }
 `
 
