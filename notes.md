@@ -28,3 +28,13 @@
     }
     setItems
 }
+
+# What needs to be built for the ItemsNav? 
+* A button with a method that will add the item to the MainPage in the specified item slot
+* A button to expand the drawer for some more information regarding the item
+
+# What needs to be built inside of the InventoryManager?
+* Slots for each equipment type. These areas will be filled with data from the ItemsNav selections.
+
+# What needs to be built for the SideNav?
+* Programatically add links depending on new characters created

@@ -11,7 +11,7 @@ const SideNavContainer = styled.nav`
 const SideNav = () => {
     return (
         <SideNavContainer>
-            <h1>SideNav</h1>
+            
         </SideNavContainer>
     )
 };

@@ -11,7 +11,6 @@ import { withClientState } from 'apollo-link-state';
 import defaults from './apollo/defaults';
 import resolvers from './apollo/resolvers';
 import App from './App';
-import './index.css';
 
 const cache = new InMemoryCache();
 
