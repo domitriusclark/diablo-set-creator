@@ -1,4 +1,4 @@
-import gql from 'graphql-tag';
+import gql from 'graphql-tag'
 
 let nextCharacterId = 0;
 
@@ -34,6 +34,32 @@ export default {
 
             return newCharacter;
             
+        },
+        addEquipment: (_, { item }, { cache }) => {
+            const query = gql`
+                query GetCharacterSet {
+                    userCharacter(id: )
+                }
+            `;
+        }
+    },
+    Query: {
+        userCharacter: (_, { id }, { cache }) => {
+            const query = gql`
+                query GetUserCharacters {
+                    userCharacters @client {
+                        id 
+                        characterName     
+                        characterClass                   
+                    }
+                }
+            `;
+
+            const prevState = cache.readQuery({ query });
+            const { userCharacters } = prevState;
+            const character = userCharacters.find(character => character.id === id);
+            console.log(character);
+            return character;
         }
     }
 }

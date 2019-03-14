@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ApolloProvider } from 'react-apollo';
-import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks';
 import ApolloClient from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
+import gql from 'graphql-tag';  
 import resolvers from './apollo/resolvers';
 import App from './App';
 
 const cache = new InMemoryCache();
 
-const typeDefs = `
+const typeDefs = gql`
     type UserCharacter {
         id: Int!
         characterName: String!
@@ -25,7 +25,7 @@ const typeDefs = `
     type Item {
         id: String!
         name: String!
-        icon: "String"
+        icon: String
         slots: [String]!
         setName: String!
         type: ItemType
@@ -39,13 +39,14 @@ const typeDefs = `
         characters: [Character]
         userCharacters: [UserCharacter]
         items: [Item]
+        userCharacter(id: Int!): UserCharacter!
     }
 `
 
 const client = new ApolloClient({
     cache,
-    typeDefs,
-    resolvers
+    resolvers,
+    typeDefs
 });
 
 cache.writeData({
@@ -54,8 +55,9 @@ cache.writeData({
             __typename: "SingleCharacter", 
             characterName: "Juicetrades", 
             characterClass: "Demon Hunter", 
-            id: 0
-        }],
+            id: 0,
+            characterSet: []
+        }],    
         items: [
             {
                 __typename: "Item",
@@ -89,9 +91,7 @@ cache.writeData({
 
 ReactDOM.render(
     <ApolloProvider client={client}>
-        <ApolloHooksProvider client={client}>
-            <App /> 
-        </ApolloHooksProvider>
+        <App />         
     </ApolloProvider>
     , document.getElementById('root')
 );

@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { useQuery } from 'react-apollo-hooks';
 import gql from 'graphql-tag';
+import { Query } from 'react-apollo';
+
+import ItemAccordian from './ItemAccordian/ItemAccordian';
 
 const ItemsNavContainer = styled.nav`
     display: flex;
@@ -20,7 +23,7 @@ const Item = styled.div`
 
 const GET_CLASS_FROM_CHARACTER = gql`
     {
-        userCharacters {
+        userCharacters @client {
             characterClass
         }
     }
@@ -28,7 +31,7 @@ const GET_CLASS_FROM_CHARACTER = gql`
 
 const GET_ITEMS = gql`
     {
-        items {
+        items @client{
             id
             name
             slots
@@ -41,32 +44,36 @@ const GET_ITEMS = gql`
     }
 `;
 
-
 const ItemsNav = () => {
-    const { data } = useQuery(GET_CLASS_FROM_CHARACTER);
-    const { userCharacters } = data;
-    const currentCharacter = userCharacters[0];
-    const { characterClass } = currentCharacter;
-
-    const { data: itemData } = useQuery(GET_ITEMS);
-    const { items } = itemData;
-
-
-
     return (
-        <ItemsNavContainer>
-            {items.map((item) => {
-                const { name, icon, setName, type } = item;
-                const { id } = type;
-                
+        <Query query={GET_CLASS_FROM_CHARACTER}>
+            {data => {
+                console.log(data.data.userCharacters)
+                const { data: localData } = data;
+                const { userCharacters } = localData;
+                const currentCharacter = userCharacters[0];
+                const { characterClass } = currentCharacter;
+
                 return (
-                    <Item>
-                        <p>{name}</p>
-                        <p>{setName}</p>
-                    </Item>
-            )})}
-        </ItemsNavContainer>
+                    <Query query={GET_ITEMS}>
+                        {data => {
+                            const { data: localData } = data;
+                            const { items } = localData;
+
+                            return (
+                                <ItemsNavContainer>
+                                    {items.map((item) => {        
+                                        return (
+                                            <ItemAccordian {...item} />
+                                    )})}
+                                </ItemsNavContainer>
+                            )
+                        }}
+                    </Query>
+                )
+            }}
+        </Query>
     )
-};
+}
 
 export default ItemsNav;
