@@ -43,7 +43,7 @@ export default {
                 }                
             `;
 
-            const previousState = cache.readQuery({ query, variables: { id: characterId }});
+            const previousState = cache.readQuery({ query, variables: { id: parseInt(characterId) }});
 
              const data = {
                  userCharacter: {
