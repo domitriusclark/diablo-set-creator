@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
-import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
+import { Mutation } from 'react-apollo';
+import gql from 'graphql-tag'
+import CurrentCharacter from '../../../utils/CurrentCharacter';
 
 const AccordianWrapper = styled.div`
     height: auto;
@@ -36,29 +37,31 @@ const AccordianContent = styled.div`
     font-size: 1.7rem;
 `
 
-const GET_CHARACTER = gql`
-    query GetSingleCharacte($id: Int!) {
-        userCharacter(id: $id) @client{
-            characterName
+const ADD_EQUIPMENT = gql`
+    mutation AddEquipment($item: Item!, $id: Int) {
+        addEquipment(item: $item, id: $id) @client {
+            item
         }
     }
 `
 
-const ItemAccordian = ({ name, id, type, setName }) => {
+const ItemAccordian = (props) => {
+    const { name, id, type, setName } = props;
     const [isOpen, setIsOpen] = React.useState(false);  
     const toggleOpen = () => {
         setIsOpen(!isOpen);
     }
     return (
-        <Query query={GET_CHARACTER} variables={{id: 0}}>
+        <CurrentCharacter>
             {({data}) => {
-                console.log(data);
+                const { userCharacter } = data;
+                console.log(userCharacter)
                 return (
                     <AccordianWrapper>
                         <AccordianContainer key={id}>
                             <AccordianHeading>
                                 <p>{name}</p>
-                                <AccordianButton>+</AccordianButton>
+                                {}
                                 <AccordianButton color="green" onClick={toggleOpen}>></AccordianButton>
                             </AccordianHeading>            
                         </AccordianContainer>
@@ -66,7 +69,7 @@ const ItemAccordian = ({ name, id, type, setName }) => {
                     </AccordianWrapper>
                 )
             }}
-        </Query>
+        </CurrentCharacter>
     )
 }
 

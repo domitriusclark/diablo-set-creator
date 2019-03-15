@@ -15,6 +15,7 @@ const typeDefs = gql`
         id: Int!
         characterName: String!
         characterClass: String!
+        equipment: [Item!]!
     }
 
     type ItemType {
@@ -33,6 +34,7 @@ const typeDefs = gql`
 
     type Mutation {
         addCharacter(characterName: String!, characterClass: String!): Character
+        addEquipmentSlot(id: Int!, item: Item!): Item
     }
 
     type Query {
@@ -54,9 +56,9 @@ cache.writeData({
         userCharacters: [{ 
             __typename: "SingleCharacter", 
             characterName: "Juicetrades", 
-            characterClass: "Demon Hunter", 
+            characterClass: "DemonHunter", 
             id: 0,
-            characterSet: []
+            equipment: []
         }],    
         items: [
             {

@@ -21,10 +21,9 @@ export default {
                 __typename: 'SingleCharacter',
                 id: nextCharacterId++,
                 characterName,
-                characterClass
+                characterClass,
+                equipment: []
             };
-
-            console.log('This is the new character obj', newCharacter);
 
             const data = {
                 userCharacters: previousState.userCharacters.concat(newCharacter)
@@ -35,12 +34,26 @@ export default {
             return newCharacter;
             
         },
-        addEquipment: (_, { item }, { cache }) => {
+        addEquipment: (_, { item, id: characterId }, { cache }) => {
             const query = gql`
-                query GetCharacterSet {
-                    userCharacter(id: )
-                }
+                query GetSingleCharacter($id: Int!) {
+                    userCharacter(id: $id) @client {
+                        equipment
+                    }
+                }                
             `;
+
+            const previousState = cache.readQuery({ query, variables: { id: characterId }});
+
+             const data = {
+                 userCharacter: {
+                     equipment: previousState.userCharacter.equipment.push(item)
+                 }
+             }
+
+             cache.writeData({ data });
+
+             return item;
         }
     },
     Query: {
@@ -58,7 +71,6 @@ export default {
             const prevState = cache.readQuery({ query });
             const { userCharacters } = prevState;
             const character = userCharacters.find(character => character.id === id);
-            console.log(character);
             return character;
         }
     }

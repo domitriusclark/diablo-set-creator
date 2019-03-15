@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useQuery } from 'react-apollo-hooks';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
+import { withRouter } from 'react-router';
 
 import ItemAccordian from './ItemAccordian/ItemAccordian';
 
@@ -44,11 +44,13 @@ const GET_ITEMS = gql`
     }
 `;
 
-const ItemsNav = () => {
+
+
+const ItemsNav = (props) => {
+    const { id: currentUserClassId } = props.match.params
     return (
         <Query query={GET_CLASS_FROM_CHARACTER}>
             {data => {
-                console.log(data.data.userCharacters)
                 const { data: localData } = data;
                 const { userCharacters } = localData;
                 const currentCharacter = userCharacters[0];
@@ -76,4 +78,4 @@ const ItemsNav = () => {
     )
 }
 
-export default ItemsNav;
+export default withRouter(ItemsNav);

@@ -30,11 +30,17 @@
 }
 
 # What needs to be built for the ItemsNav? 
-* A button with a method that will add the item to the MainPage in the specified item slot
-* A button to expand the drawer for some more information regarding the item
+[] A button with a method that will add the item to the MainPage in the specified item slot
+[x] A button to expand the drawer for some more information regarding the item
+[] A resolver to push the item into the userCharacters slots array. This will also fill the InventoryManager Equipment area. 
 
 # What needs to be built inside of the InventoryManager?
-* Slots for each equipment type. These areas will be filled with data from the ItemsNav selections.
+[] Slots for each equipment type. These areas will be filled with data from the ItemsNav selections.
+[] A query to pull in the Equipment slots (typeDefs, query)
 
 # What needs to be built for the SideNav?
 * Programatically add links depending on new characters created
+
+
+## REMINDER ABOUT NAV --
+Remember that currently it's hard to keep track of a single created character and push a route containing the ID, since the Id is created elsewhere. Think about adding the SideNav to the CharacterForm screen as well and allow them to click into their character.
