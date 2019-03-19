@@ -1,8 +1,5 @@
 import React, { Fragment } from 'react';
 import styled  from 'styled-components';
-import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
-import { withRouter } from 'react-router-dom';
 
 const InventoryManagerContainer = styled.div`
     height: 100vh;
@@ -24,40 +21,22 @@ const EquipmentName = styled.div`
     color: white;
 `
 
-const GET_CURRENT_CHARACTER = gql`
-    query GetSingleCharacter($id: Int!){
-        userCharacter(id: $id) @client {
-            equipment
-        }
-    }
-`
-
 
 const InventoryManager = (props) => {
+    const { currentCharacter } = props;
     return (
         <InventoryManagerContainer>
-            <Query query={GET_CURRENT_CHARACTER} variables={{ id: parseInt(props.match.params.characterClassId) }}>
-                {({data}) => {
-                    const { userCharacter } = data;
-                    
-                    return (
-                        <Fragment>
-                            {userCharacter !== undefined && userCharacter.equipment.map(item => {
-                                console.log(item)
-                                return (
-                                    <EquipmentSlot>
-                                        <EquipmentName>
-                                            <p></p>
-                                        </EquipmentName>
-                                    </EquipmentSlot>
-                                )
-                            })}
-                        </Fragment>
-                    )
-                }}
-            </Query>
-        </InventoryManagerContainer>
+            {currentCharacter.equipment.map(item => {                            
+                return (
+                    <EquipmentSlot>
+                        <EquipmentName>
+                            <p></p>
+                        </EquipmentName>
+                    </EquipmentSlot>
+                )
+            })}
+        </InventoryManagerContainer>      
     )
 };
 
-export default withRouter(InventoryManager);
+export default InventoryManager;

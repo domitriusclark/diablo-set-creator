@@ -39,6 +39,7 @@ const GET_ITEMS = gql`
             setName
             type {
                 id
+                twoHanded
             }
         }
     }
@@ -47,26 +48,19 @@ const GET_ITEMS = gql`
 
 
 const ItemsNav = (props) => {
-    const { id: currentUserClassId } = props.match.params
+    const { currentCharacter } = props;
     return (
         <Query query={GET_CLASS_FROM_CHARACTER}>
-            {data => {
-                const { data: localData } = data;
-                const { userCharacters } = localData;
-                const currentCharacter = userCharacters[0];
-                const { characterClass } = currentCharacter;
-
+            {({ data })=> {            
                 return (
                     <Query query={GET_ITEMS}>
-                        {data => {
-                            const { data: localData } = data;
-                            const { items } = localData;
-
+                        {({ data }) => {                            
+                            const { items } = data;
                             return (
                                 <ItemsNavContainer>
                                     {items.map((item) => {        
                                         return (
-                                            <ItemAccordian {...item} />
+                                            <ItemAccordian currentCharacter={currentCharacter} {...item} />
                                     )})}
                                 </ItemsNavContainer>
                             )

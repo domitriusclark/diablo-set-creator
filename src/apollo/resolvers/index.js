@@ -1,6 +1,5 @@
 import gql from 'graphql-tag'
-
-let nextCharacterId = 0;
+import uuid from 'uuid/v4'
 
 export default {
     Mutation: {
@@ -8,52 +7,78 @@ export default {
             const query = gql`
                 query GetUserCharacters {
                     userCharacters @client {
-                        id 
+                        id
                         characterName     
-                        characterClass                   
+                        characterClass
+                        equipment {
+                            name
+                            id
+                            __typename
+                            icon
+                            slots
+                            setName
+                            type {
+                                __typename
+                                twoHanded
+                                id
+                            }
+                        }                   
                     }
                 }
             `;
 
-            const previousState = cache.readQuery({ query });
+            const randomId = uuid();
 
+            const prevState = cache.readQuery({ query });
+    
             const newCharacter = {
                 __typename: 'SingleCharacter',
-                id: nextCharacterId++,
+                id: randomId,
                 characterName,
                 characterClass,
                 equipment: []
             };
 
             const data = {
-                userCharacters: previousState.userCharacters.concat(newCharacter)
-            };
-
+                userCharacters: prevState.userCharacters.concat(newCharacter)
+            }
+            
             cache.writeData({ data });
 
             return newCharacter;
             
         },
         addEquipment: (_, { item, id: characterId }, { cache }) => {
-            const query = gql`
-                query GetSingleCharacter($id: Int!) {
-                    userCharacter(id: $id) @client {
-                        equipment
+            const id = `SingleCharacter:${characterId}`;
+            const fragment = gql`
+                fragment addEquip on SingleCharacter {
+                    equipment {
+                        name
+                        id
+                        __typename
+                        icon
+                        slots
+                        setName
+                        type {
+                            __typename
+                            twoHanded
+                            id
+                        }
                     }
-                }                
-            `;
+                }
+            `
+            const prevState = cache.readFragment({ fragment, id });
 
-            const previousState = cache.readQuery({ query, variables: { id: parseInt(characterId) }});
+            const data = { 
+                equipment: prevState.equipment.concat(item)
+            }
 
-             const data = {
-                 userCharacter: {
-                     equipment: previousState.userCharacter.equipment.push(item)
-                 }
-             }
-
-             cache.writeData({ data });
-
-             return item;
+            cache.writeFragment({ 
+                fragment,
+                id,
+                data 
+            });
+            return null;
         }
     },
     Query: {
@@ -61,16 +86,17 @@ export default {
             const query = gql`
                 query GetUserCharacters {
                     userCharacters @client {
-                        id 
-                        characterName     
-                        characterClass                   
+                        id       
                     }
                 }
             `;
-
+            
             const prevState = cache.readQuery({ query });
             const { userCharacters } = prevState;
-            const character = userCharacters.find(character => character.id === id);
+            const character = userCharacters.find(character => {                
+                return character.id === id
+            });
+
             return character;
         }
     }

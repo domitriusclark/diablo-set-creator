@@ -12,19 +12,19 @@ const cache = new InMemoryCache();
 
 const typeDefs = gql`
     type UserCharacter {
-        id: Int!
+        id: ID!
         characterName: String!
         characterClass: String!
-        equipment: [Item!]!
+        equipment: [Item]
     }
 
     type ItemType {
         twoHanded: Boolean!
-        id: String!
+        id: ID!
     }
 
     type Item {
-        id: String!
+        id: ID!
         name: String!
         icon: String
         slots: [String]!
@@ -34,14 +34,14 @@ const typeDefs = gql`
 
     type Mutation {
         addCharacter(characterName: String!, characterClass: String!): Character
-        addEquipmentSlot(id: Int!, item: Item!): Item
+        addEquipmentSlot(id: ID!, item: Item!): Item
     }
 
     type Query {
         characters: [Character]
         userCharacters: [UserCharacter]
         items: [Item]
-        userCharacter(id: Int!): UserCharacter!
+        userCharacter(id: ID!): UserCharacter!
     }
 `
 
@@ -53,13 +53,14 @@ const client = new ApolloClient({
 
 cache.writeData({
     data: {
-        userCharacters: [{ 
-            __typename: "SingleCharacter", 
-            characterName: "Juicetrades", 
-            characterClass: "DemonHunter", 
-            id: 0,
-            equipment: []
-        }],    
+        // userCharacters: [{ 
+        //     __typename: "SingleCharacter", 
+        //     characterName: "Juicetrades", 
+        //     characterClass: "DemonHunter", 
+        //     id: "rando_123456_wow",
+        //     equipment: []
+        // }],   
+        userCharacters: [], 
         items: [
             {
                 __typename: "Item",
