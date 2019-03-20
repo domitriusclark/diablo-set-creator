@@ -77,15 +77,83 @@ cache.writeData({
             },
             {
                 __typename: "Item",
-                id: 'Unique_Gloves_Set_07_x1',
-                name: "Marauder's Gloves",
-                icon: 'unique_gloves_set_07_x1_demonhunter_male',
-                slots: ["hands"],
-                setName: 'Embodiment of the Marauder',
+                id: "Unique_Shoulder_Set_05_x1",
+                name: "Raekor's Burden",
+                icon: "unique_shoulder_set_05_x1_demonhunter_male",
+                slots: ["shoulders"],
+                setName: "The Legacy of Raekor",
                 type: {
                     __typename: 'ItemType',
                     twoHanded: false,
-                    id: "Gloves_DemonHunter"
+                    id: "Shoulders_Barbarian"
+                }
+            },
+            {
+                __typename: "Item",
+                id: "Unique_Helm_Set_02_p3",
+                name: "Arachyr's Visage",
+                icon: "unique_helm_set_02_p3_demonhunter_male",
+                slots: ["head"],
+                setName: "Spirit of Arachyr",
+                type: {
+                    __typename: 'ItemType',
+                    twoHanded: false,
+                    id: "Helm_WitchDoctor"
+                }
+            },
+            {
+                __typename: "Item",
+                id: "Unique_Chest_Set_06_x1",
+                name: "Firebird's Breast",
+                icon: "unique_chest_set_06_x1_demonhunter_male",
+                slots: ["torso"],
+                setName: "Firebird's Finery",
+                type: {
+                    __typename: 'ItemType',
+                    twoHanded: false,
+                    id: "ChestArmor_Wizard"
+                }
+            },
+            {
+                __typename: "Item",
+                id: "P6_Necro_Set_1_Pants",
+                name: "Rathma's Skeletal Legplates",
+                icon: "p6_necro_set_1_pants_demonhunter_male",
+                slots: ["legs"],
+                setName: "Bones of Rathma",
+                type: {
+                    __typename: 'ItemType',
+                    twoHanded: false,
+                    id: "Legs_Necromancer"
+                }
+            },
+            {
+                __typename: "Item",
+                id: "Unique_Boots_Set_01_p3",
+                name: "Uliana's Destiny",
+                icon: "unique_boots_set_01_p3_demonhunter_male",
+                slots: ["feet"],
+                setName: "Uliana's Stratagem",
+                type: {
+                    __typename: 'ItemType',
+                    twoHanded: false,
+                    id: "Boots_Monk"
+                }
+            },
+            {
+                __typename: "Item",
+                id: "Unique_CruShield_107_x1",
+                name: "The Final Witness",
+                icon: "unique_crushield_107_x1_demonhunter_male",
+                slots: [
+                    "right-hand",
+                    "follower-right-hand"
+                ],
+                setName: "Uliana's Stratagem",
+                type: {
+                    __typename: 'ItemType',
+                    twoHanded: false,
+                    id: "CrusaderShield"
                 }
             }
         ]

@@ -21,7 +21,7 @@ const SideNav = () => {
                         <Link to="/">Home</Link>
                         {userCharacters.map(character => {
                             const { characterName, characterClass, id } = character;
-                            return <Link to={`/${characterClass.replace(/\s/g, '')}/${id}`}>{characterName}</Link>
+                            return <Link key={id} to={`/${characterClass.replace(/\s/g, '')}/${id}`}>{characterName}</Link>
                         })}
                     </SideNavContainer>                    
                 )

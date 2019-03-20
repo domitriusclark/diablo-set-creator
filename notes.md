@@ -41,6 +41,9 @@
 # What needs to be built for the SideNav?
 * Programatically add links depending on new characters created
 
+# Next Steps
+- Make it so that when you add an equipment type it adds the data to the specified location. Figure out how to match data to an HTML element. 
 
-## REMINDER ABOUT NAV --
-Remember that currently it's hard to keep track of a single created character and push a route containing the ID, since the Id is created elsewhere. Think about adding the SideNav to the CharacterForm screen as well and allow them to click into their character.
+- Filter equipment by neutral + class specific items. Using the character data, match the characters class name to the items data.
+( Add to default state: An item for each individual class and a neutral item that all of them can use)
+

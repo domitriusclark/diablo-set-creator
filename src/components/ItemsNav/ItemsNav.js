@@ -49,6 +49,7 @@ const GET_ITEMS = gql`
 
 const ItemsNav = (props) => {
     const { currentCharacter } = props;
+    
     return (
         <Query query={GET_CLASS_FROM_CHARACTER}>
             {({ data })=> {            
@@ -57,11 +58,14 @@ const ItemsNav = (props) => {
                         {({ data }) => {                            
                             const { items } = data;
                             return (
-                                <ItemsNavContainer>
-                                    {items.map((item) => {        
-                                        return (
-                                            <ItemAccordian currentCharacter={currentCharacter} {...item} />
-                                    )})}
+                                <ItemsNavContainer>                                    
+                                    {items.map((item) => {  
+                                        const { characterClass } = currentCharacter;  
+                                        const trimClass = characterClass.replace(/\s/g, '')                                             
+                                        if (item.type.id.includes(trimClass)) {
+                                            return <ItemAccordian key={currentCharacter.id} currentCharacter={currentCharacter} {...item} />
+                                        } 
+                                    })}
                                 </ItemsNavContainer>
                             )
                         }}
