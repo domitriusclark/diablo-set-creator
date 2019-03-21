@@ -6,12 +6,18 @@ import { withRouter } from 'react-router';
 
 import ItemAccordian from './ItemAccordian/ItemAccordian';
 
-const ItemsNavContainer = styled.nav`
+const FieldsetNavContainer = styled.fieldset`
     display: flex;
     flex-direction: column;
-    width: 17.5%;
+    width: 12.5%;
     background: #281D19;
-    border: 2px solid black;
+    border: 4px solid #2F2C29;
+
+    & legend {
+        font-size: 1.4rem;
+        color: white;
+        ;
+    }
 `
 
 const Item = styled.div`
@@ -60,7 +66,8 @@ const ItemsNav = (props) => {
                         {({ data }) => {                            
                             const { items } = data;
                             return (
-                                <ItemsNavContainer>                                    
+                                <FieldsetNavContainer>
+                                    <legend>Items</legend>                                    
                                     {items.map((item) => {  
                                         const { characterClass } = currentCharacter;  
                                         const trimClass = characterClass.replace(/\s/g, '')                                             
@@ -68,7 +75,7 @@ const ItemsNav = (props) => {
                                             return <ItemAccordian key={currentCharacter.id} currentCharacter={currentCharacter} {...item} />
                                         } 
                                     })}
-                                </ItemsNavContainer>
+                                </FieldsetNavContainer>
                             )
                         }}
                     </Query>

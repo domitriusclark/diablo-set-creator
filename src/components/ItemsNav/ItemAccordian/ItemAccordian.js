@@ -8,6 +8,8 @@ const AccordianWrapper = styled.div`
     border: 1px solid black;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    color: #B49F77;
 `
 
 const AccordianContainer = styled.div`

@@ -4,7 +4,6 @@ import styled  from 'styled-components';
 const InventoryManagerContainer = styled.div`
     height: 100vh;
     width: 70%;
-    background: rebeccapurple;
     display: flex;
     flex-direction: column;
     align-items: center;

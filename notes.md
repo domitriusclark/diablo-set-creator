@@ -47,3 +47,22 @@
 - Filter equipment by neutral + class specific items. Using the character data, match the characters class name to the items data.
 ( Add to default state: An item for each individual class and a neutral item that all of them can use)
 
+
+
+# Code snippets : 
+
+Outline text with a black outline
+``` 
+
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+
+```
+
+Reset a tag styles
+```
+
+
+```
