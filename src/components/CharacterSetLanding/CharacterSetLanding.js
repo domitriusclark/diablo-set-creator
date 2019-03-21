@@ -10,7 +10,6 @@ import { withRouter } from 'react-router-dom';
 const SetCreationWrapper = styled.div`
     display: flex;
     width: 100%;
-    border: 2px solid red;
 `
 
 const GET_CHARACTER = gql`

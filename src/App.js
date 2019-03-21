@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import Routes from './routes';
+import styled from 'styled-components';
+
+const StyledAppContainer = styled.div`
+    width: 100%;
+    height: 100vh;
+    background: black;
+`
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <StyledAppContainer>
         <Routes />
-      </div>
+      </StyledAppContainer>
     );
   }
 }

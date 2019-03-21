@@ -9,6 +9,7 @@ const InventoryManagerContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: #281D19;
 `;
 
 const EquipmentSlot = styled.div`

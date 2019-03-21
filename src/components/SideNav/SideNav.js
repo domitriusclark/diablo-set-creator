@@ -8,7 +8,8 @@ const SideNavContainer = styled.nav`
     display: flex;
     flex-direction: column;
     width: 12.5%;
-    background: grey;
+    border: 2px solid black;
+    background: #281D19;
 `
 
 const SideNav = () => {

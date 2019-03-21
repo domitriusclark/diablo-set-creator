@@ -10,6 +10,8 @@ const ItemsNavContainer = styled.nav`
     display: flex;
     flex-direction: column;
     width: 17.5%;
+    background: #281D19;
+    border: 2px solid black;
 `
 
 const Item = styled.div`

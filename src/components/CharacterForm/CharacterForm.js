@@ -8,12 +8,15 @@ import { diabloClasses } from '../../utils';
 const FormWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
-    border: 2px solid rebeccapurple;
-    margin: 5rem;
-    height: 15rem;
     padding: 5rem;
+    font-family: 'Press Start 2P', cursive;
+`;
+
+const DiabloLogo = styled.img`
+    object-fit: cover;
+    
+    
 `
 
 const StyledForm = styled.form`
@@ -24,19 +27,40 @@ const StyledForm = styled.form`
 
     & input {
         border: 1px solid black;
+        background: none;
+        border-bottom: 1px solid white;
+        color: #B49F77;
+        font-size: 1.6rem;
+
+        &:focus {
+            outline: none;
+        }
     }
 
     & button {
         border-radius: 4px;
         padding: 1rem;
         cursor: pointer;
+        font-size: 1.3rem;
     }
 `
 
 const H1 = styled.h1`
     font-size: 2rem;
-    color: rebeccapurple;
+    color: #B49F77;
 `;
+
+const SelectContainer = styled.div`
+    height: 3rem;
+    width: 100%;
+    
+
+    & select {
+        width: 100%;
+        height: 100%;
+        font-size: 1.4rem;
+    }
+`
 
 
 const ADD_CHARACTER = gql`
@@ -68,7 +92,8 @@ const CharacterForm = (props) => {
             {(addCharacter) => (
                 <div>
                     <FormWrapper>
-                        <H1>Add Your Character!</H1>
+                        <DiabloLogo src="newlogo.png" />
+                        <H1>Create Your Character!</H1>
                         <StyledForm onSubmit={(e) => {
                             e.preventDefault();
                             addCharacter({ variables: { characterName: textInput.current.value, characterClass: characterSelect.current.value }})
@@ -78,12 +103,14 @@ const CharacterForm = (props) => {
                                     return props.history.push(`/${characterSelect.current.value.replace(/\s/g, '')}/${id}`)
                                 });         
                         }}>
-                            <input type="text" ref={textInput} />
-                            <select ref={characterSelect}>
-                                {diabloClasses.map((diabloClass) => (
-                                    <option key={diabloClass.id} value={diabloClass.name}>{diabloClass.name}</option>
-                                ))}
-                            </select>
+                            <input autoFocus type="text" ref={textInput} />
+                            <SelectContainer>
+                                <select ref={characterSelect}>
+                                    {diabloClasses.map((diabloClass) => (
+                                        <option key={diabloClass.id} value={diabloClass.name}>{diabloClass.name}</option>
+                                    ))}
+                                </select>
+                            </SelectContainer>                            
                             <button>Add Character</button>
                         </StyledForm>                                
                     </FormWrapper>
