@@ -1,11 +1,5 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled  from 'styled-components';
-import Helm from './Helm';
-import Shoulders from './Shoulders';
-import Torso from './Torso';
-import Hands from './Hands';
-import Legs from './Legs';
-import Feet from './Feet';
 
 const InventoryManagerContainer = styled.div`
     width: 75%;
@@ -39,10 +33,11 @@ const InventoryManager = (props) => {
     const { currentCharacter } = props; 
     return (
         <InventoryManagerContainer>
-            {console.log(currentCharacter.equipment)}
-            {currentCharacter.equipment.map((equip) => {
+            {currentCharacter.equipment.map((equip) => {  
                 return <EquipmentSlot equip={equip}>
-                    <EquipmentName></EquipmentName>
+                    <EquipmentName>
+                        {equip.items.length > 0 ? <img src={`http://media.blizzard.com/d3/icons/items/large/${equip.items[0].icon}.png`}></img> : null}
+                    </EquipmentName>
                 </EquipmentSlot>
             })}
         </InventoryManagerContainer>
