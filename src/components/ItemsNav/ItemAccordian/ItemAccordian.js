@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag'
+import { EquipmentName } from '../../InventoryManager/InventoryManager';
 
 const AccordianWrapper = styled.div`
     height: auto;
@@ -49,7 +50,7 @@ const AccordianContent = styled.div`
 const ADD_EQUIPMENT = gql`
     mutation AddEquipment($item: Item!, $id: ID!) {
         addEquipment(item: $item, id: $id) @client {
-            item
+            equipment
         }
     }
 `;

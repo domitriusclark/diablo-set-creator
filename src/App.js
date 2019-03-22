@@ -3,7 +3,7 @@ import Routes from './routes';
 import styled from 'styled-components';
 
 const StyledAppContainer = styled.div`
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background: black;
 `

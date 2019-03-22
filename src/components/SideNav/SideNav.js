@@ -8,6 +8,7 @@ const FieldsetNavContainer = styled.fieldset`
     display: flex;
     flex-direction: column;
     width: 12.5%;
+    height: 90%;
     background: #281D19;
     border: 4px solid #2F2C29;
 

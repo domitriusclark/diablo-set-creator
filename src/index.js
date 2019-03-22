@@ -15,12 +15,17 @@ const typeDefs = gql`
         id: ID!
         characterName: String!
         characterClass: String!
-        equipment: [Item]
+        equipment: [EquipmentSlot]
     }
 
     type ItemType {
         twoHanded: Boolean!
         id: ID!
+    }
+
+    type EquipmentSlot {
+        name: Int!
+        items: [Item]!
     }
 
     type Item {
@@ -72,7 +77,7 @@ cache.writeData({
                 type: {
                     __typename: 'ItemType',
                     twoHanded: false,
-                    id: "Gloves_DemonHunter"
+                    id: "Gloves_WitchDoctor"
                 }
             },
             {
@@ -85,7 +90,7 @@ cache.writeData({
                 type: {
                     __typename: 'ItemType',
                     twoHanded: false,
-                    id: "Shoulders_Barbarian"
+                    id: "Shoulders_WitchDoctor"
                 }
             },
             {
@@ -111,7 +116,7 @@ cache.writeData({
                 type: {
                     __typename: 'ItemType',
                     twoHanded: false,
-                    id: "ChestArmor_Wizard"
+                    id: "ChestArmor_WitchDoctor"
                 }
             },
             {
@@ -124,7 +129,7 @@ cache.writeData({
                 type: {
                     __typename: 'ItemType',
                     twoHanded: false,
-                    id: "Legs_Necromancer"
+                    id: "Legs_WitchDoctor"
                 }
             },
             {
@@ -137,7 +142,7 @@ cache.writeData({
                 type: {
                     __typename: 'ItemType',
                     twoHanded: false,
-                    id: "Boots_Monk"
+                    id: "Boots_WitchDoctor"
                 }
             },
             {
@@ -153,7 +158,7 @@ cache.writeData({
                 type: {
                     __typename: 'ItemType',
                     twoHanded: false,
-                    id: "CrusaderShield"
+                    id: "WitchDoctorShield"
                 }
             }
         ]

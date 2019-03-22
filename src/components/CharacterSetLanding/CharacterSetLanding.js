@@ -10,6 +10,10 @@ import { withRouter } from 'react-router-dom';
 const SetCreationWrapper = styled.div`
     display: flex;
     width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+
 `
 
 const GET_CHARACTER = gql`
@@ -20,16 +24,20 @@ const GET_CHARACTER = gql`
             characterName
             equipment {
                 name
-                id
-                __typename
-                icon
-                slots
-                setName
-                type {
-                    __typename
-                    twoHanded
+                items {
+                    name
                     id
+                    __typename
+                    icon
+                    slots
+                    setName
+                    type {
+                        __typename
+                        twoHanded
+                        id
+                    }
                 }
+
             }
         }
     }

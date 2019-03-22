@@ -69,6 +69,22 @@ const ADD_CHARACTER = gql`
             id 
             characterName
             characterClass
+            equipment {
+                name
+                items {
+                    name
+                    id
+                    __typename
+                    icon
+                    slots
+                    setName
+                    type {
+                        __typename
+                        twoHanded
+                        id
+                    }
+                }
+            }
         }
     }
 `;
